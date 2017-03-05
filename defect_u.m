@@ -96,7 +96,7 @@ function d = dT(U, N)
     % by squaring the moduli of entries (preserving each element position),
     % eventually rank(T) is the size of tangent space image
 
-    disp('Wait... getting dimension of the tangent space...');
+    disp('Wait... Getting dimension of the tangent space...');
     % image of vectors (A, 0), where A - basis of a anti-symmetric real part 
     for k = 1 : (N - 1),
         for l = (k + 1) : N,
