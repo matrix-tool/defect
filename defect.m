@@ -51,7 +51,7 @@ end
 function matrix_type = get_matrix_type(U)
     if is_unitary(U)
         matrix_type = 'unitary';
-        if is_hermitian(U) % in-built "ishermitian" function has to small tolerance...
+        if is_hermitian(U) % in-built "ishermitian" function has too small tolerance...
             matrix_type = 'unitary_hermitian';
         end
     end
