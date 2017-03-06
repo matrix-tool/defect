@@ -51,7 +51,7 @@ end
 function matrix_type = get_matrix_type(U)
     if is_unitary(U)
         matrix_type = 'unitary';
-        if is_hermitian(U) % in-built "ishermitian" function is not sensitive enough...
+        if is_hermitian(U) % in-built "ishermitian" function has to small tolerance...
             matrix_type = 'unitary_hermitian';
         end
     end
@@ -60,7 +60,7 @@ end
 function b = is_hermitian(U)
     b = false;
     T = abs(U - U');
-    if sum(T(:)) < 1e-10 % note - the tolerance is relatively small...
+    if sum(T(:)) < 1e-10 % note - the tolerance is relatively large...
         b = true;
     end
 end
@@ -69,7 +69,7 @@ function b = is_unitary(U)
     b = false;
     T = U * U';
     T = T / T(1, 1); % U = unitary => T ~ I
-    if norm(T - eye(size(T, 1)), 'fro') < 1e-10 % note - the tolerance is relatively small...
+    if norm(T - eye(size(T, 1)), 'fro') < 1e-10 % note - the tolerance is relatively large...
         b = true;
     end
 end
