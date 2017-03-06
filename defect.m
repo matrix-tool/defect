@@ -1,4 +1,7 @@
 % 20170304
+% https://github.com/matrix-tool/defect
+% name[at]alumni.uj.edu.pl, name = w.bruzda
+
 % [dephased] defect of a square matrix
 
 function d = defect(U, METHOD, SV_TOLERANCE)
@@ -40,11 +43,13 @@ function d = defect(U, METHOD, SV_TOLERANCE)
             disp('Continue with STANDARD defect procedure.');
             d = defect_u(U, METHOD, SV_TOLERANCE);
         case 'unitary_hermitian'
-            disp('Input matrix is unitary and hermitian.');
+            error('Not implemented!');
+        case 'unitary_hermitian_with_constant_diagonal'
+            disp('Input matrix is unitary, hermitian and has constant diagonal.');
             disp('Continue with RESTRICTED defect procedure.');
             d = defect_h(U, METHOD, SV_TOLERANCE);
         otherwise
-            error('Not implemented...');
+            error('Not implemented!');
     end
 end
 
@@ -53,6 +58,13 @@ function matrix_type = get_matrix_type(U)
         matrix_type = 'unitary';
         if is_hermitian(U) % in-built "ishermitian" function has too small tolerance...
             matrix_type = 'unitary_hermitian';
+            diagonal = diag(U);
+            diagonal = abs(diagonal - diagonal(1));
+            if sum(diagonal) < 1e-12;
+                matrix_type = 'unitary_hermitian_with_constant_diagonal';
+            else
+                matrix_type = 'unitary';
+            end
         end
     end
 end

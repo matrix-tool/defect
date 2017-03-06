@@ -1,5 +1,7 @@
 % 20160408
-% 20170212
+% https://github.com/matrix-tool/defect
+% name[at]alumni.uj.edu.pl, name = w.bruzda
+
 % Dephased defect of a unitary (Hadamard) matrix U.
 
 % Based on the idea of W. Tadej and K. Zyczkowski

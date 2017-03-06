@@ -1,4 +1,7 @@
 % 20170209
+% https://github.com/matrix-tool/defect
+% name[at]alumni.uj.edu.pl, name = w.bruzda
+
 % [Restricted] defect of a unitary matrix U subjected to additional constraints.
 
 function d = defect_h(U, METHOD, SV_TOLERANCE)
