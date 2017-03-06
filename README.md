@@ -14,7 +14,7 @@ Defect can be calculated in many ways. Let `R` be a matrix of a special system o
 - 'S' - defect of `U` as a function of non-zero singular values of `R`
 - 'T' - defect of `U` as the dimension of the image of a tangent space to the manifold of unitaries under a certain tangent map... - see [2] for details
 
-Methods `R` and `T` work for matrices given with the highest possible numerical precision. If matrix `U` is provided only in approximate form one can try to use the `S` method. However, a special attention is needed when setting `SV_TOLERANCE` - a kind of threshold to distinguish between "zero" and "non-zero" singular values of the matrix `R`!
+Methods 'R' and 'T' work for matrices given with the highest possible numerical precision. If matrix `U` is provided only in approximate form one can try to use the 'S' method. However, a special attention is needed when setting `SV_TOLERANCE` - a kind of threshold to distinguish between "zero" and "non-zero" singular values of the matrix `R`!
 
 Motivation behind considering restricted defect is the idea of generalised quantum measurement and associated Gram matrices. It turns out that Gram matrix can be expressed as a unitary and hermitian object with constant diagonal, so that the defect is applicable to it. Given a POVM with predefined geometrical structure - either `SIC-POVM` or `MUB`, one can ask if it is possible
 to extend corresponding objects so that one gets smooth family of quantum measurements? In many cases the answer is affirmative.
