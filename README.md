@@ -36,7 +36,7 @@ Usage:
 
 The main script `defect.m` comprises of two auxiliary scripts which can be used independently. They are:
 - `defect_u.m` - defect of a unitary matrix
-- `defect_h.m` - defect of a unitary matrix subjected to additional constraints:
+- `defect_h.m` - defect of a unitary matrix subjected to additional constraints
 
 ---
 
