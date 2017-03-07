@@ -20,8 +20,6 @@ Methods 'R' and 'T' work for matrices given with the highest possible numerical 
 Motivation behind considering restricted defect is the idea of generalised quantum measurement and associated Gram matrices. It turns out that Gram matrix can be expressed as a unitary and hermitian object with constant diagonal, so that the defect is applicable to it. Given a POVM with predefined geometrical structure - either `SIC-POVM` or `MUB`, one can ask if it is possible
 to extend corresponding objects so that one gets smooth family of quantum measurements? In many cases the answer is affirmative.
 
----
-
 ## usage
 ```
 >> defect(U, [, METHOD [, SV_TOLERANCE]])
@@ -38,8 +36,6 @@ to extend corresponding objects so that one gets smooth family of quantum measur
 The main script `defect.m` comprises of two auxiliary scripts which can be used independently. They are:
 - `defect_u.m` - defect of a unitary matrix
 - `defect_h.m` - defect of a unitary matrix subjected to additional constraints
-
----
 
 ## references
 - <sup>[1]</sup> W. Bruzda, D. Goyeneche, K. Życzkowski, *"Quantum measurements with prescribed symmetry"*, preprint (2017)
