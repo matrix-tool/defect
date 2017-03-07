@@ -41,5 +41,5 @@ The main script `defect.m` comprises of two auxiliary scripts which can be used 
 - `defect_h.m` - defect of a unitary matrix subjected to additional constraints
 
 ## references
-- <sup>[1]</sup> W. Bruzda, D. Goyeneche, K. Życzkowski, *"Quantum measurements with prescribed symmetry"*, preprint (2017)
-- <sup>[2]</sup> W. Tadej, K. Życzkowski, *"[Defect of a Unitary Matrix](https://arxiv.org/abs/math/0702510 "arXiv")"*, Linear Algebra and its Applications, 429, pp. 447-481 (2008)
+- <sup>[1]</sup> W. Bruzda, D. Goyeneche, K. &#379;yczkowski, *"Quantum measurements with prescribed symmetry"*, preprint (2017)
+- <sup>[2]</sup> W. Tadej, K. &#379;yczkowski, *"[Defect of a Unitary Matrix](https://arxiv.org/abs/math/0702510 "arXiv")"*, Linear Algebra and its Applications, 429, pp. 447-481 (2008)
