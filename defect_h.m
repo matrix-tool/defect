@@ -4,6 +4,8 @@
 
 % [Restricted] defect of a unitary matrix U subjected to additional constraints.
 
+% Since "defect_h.m" is "internal" function for "defect.m" its arguments are assumed valid!
+
 function d = defect_h(U, METHOD, SV_TOLERANCE)
 
     N = size(U, 1);
