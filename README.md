@@ -12,7 +12,7 @@ One can also define **restricted** defect for a unitary matrix `U` subjected to 
 - `U` has constant (and real) diagonal
 - `U` has constant off-diagonal moduli
 
-Motivation behind considering **restricted defect** is the idea of generalised quantum measurement and associated Gram matrices. It turns out that Gram matrix can be expressed as a unitary and hermitian object with constant diagonal, so that the defect is applicable to it. Given a POVM with predefined geometrical structure - either `SIC-POVM` or `MUB`, one can ask if it is possible
+Motivation behind considering **restricted defect** lies in the idea of generalised quantum measurement and associated Gram matrices. It turns out that Gram matrix can be expressed as a unitary and hermitian object with constant diagonal, so that the defect is applicable to it. Given a POVM with predefined geometrical structure - either `SIC-POVM` or `MUB`, one can ask if it is possible
 to extend corresponding objects so that a smooth family of quantum measurements exists.
 
 ## implementation
