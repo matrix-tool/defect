@@ -1,5 +1,6 @@
 # (restricted) Defect of Unitary Matrix
 
+## description
 **Defect** of a unitary matrix `U` gives an upper bound for the dimensionality of a smooth orbit of inequivalent unitary matrices stemming from `U`. In particular one can use it as a one-way criterion
 ```
 if defect of a matrix is zero then this matrix is an isolated point
@@ -21,7 +22,7 @@ to extend corresponding objects so that one gets smooth family of quantum measur
 
 ---
 
-## Usage
+## usage
 ```
 >> defect(U, [, METHOD [, SV_TOLERANCE]])
 
@@ -40,6 +41,6 @@ The main script `defect.m` comprises of two auxiliary scripts which can be used 
 
 ---
 
-## References
+## references
 - <sup>[1]</sup> W. Bruzda, D. Goyeneche, K. Życzkowski, *"Quantum measurements with prescribed symmetry"*, preprint (2017)
 - <sup>[2]</sup> W. Tadej, K. Życzkowski, *"[Defect of a Unitary Matrix](https://arxiv.org/abs/math/0702510 "arXiv")"*, Linear Algebra and its Applications, 429, pp. 447-481 (2008)
