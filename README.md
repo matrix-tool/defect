@@ -1,7 +1,7 @@
 # (restricted) Defect of Unitary Matrix
 
 ## description
-**Defect** of a unitary matrix `U` gives an upper bound for the dimensionality of a smooth orbit of inequivalent unitary matrices stemming from `U`. Roughly speaking, two matrices are said to be **equivalent** if one can be transformed into the other via unitary operations ("rotations"). In particular one can use it as a one-way criterion
+**Defect** of a unitary matrix `U` gives an upper bound for the dimensionality of a smooth orbit of inequivalent unitary matrices stemming from `U`. Roughly speaking, two matrices are said to be **equivalent** if one can be transformed into the other via unitary operations ("rotations"). In particular it may be used as a one-way criterion
 ```
 if defect of a matrix is zero then this matrix is an isolated point
 ```
