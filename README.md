@@ -9,10 +9,10 @@ which means that in the neighbourhood of a given matrix there are no other inequ
 - `U` has constant (and real) diagonal
 - `U` has constant off-diagonal moduli
 
-Defect can be calculated in many ways. Let `R` be a matrix of a special system of linear equations associated with matrix `U` - see [1]. Here we present three possible implementations, appropriately named:
+Defect can be calculated in many ways. Let `R` be a matrix of a special system of linear equations associated with matrix `U` [1]. Here we present three possible implementations, appropriately named:
 - 'R' - defect of `U` as the rank of `R`
 - 'S' - defect of `U` as a function of non-zero singular values of `R`
-- 'T' - defect of `U` as the dimension of the image of a tangent space to the manifold of unitaries under a certain tangent map... - see [2] for details
+- 'T' - defect of `U` as the dimension of the image of a tangent space to the manifold of unitaries under a certain tangent map... [2]
 
 Methods 'R' and 'T' work for matrices given with the highest possible numerical precision. If matrix `U` is provided only in approximate form one can try to use the 'S' method. However, a special attention is needed when setting `SV_TOLERANCE` - a kind of threshold to distinguish between "zero" and "non-zero" singular values of the matrix `R`!
 
@@ -41,5 +41,5 @@ The main script `defect.m` comprises of two auxiliary scripts which can be used 
 ---
 
 ## References
-- [1] W. Bruzda, D. Goyeneche, K. Życzkowski, *"Quantum measurements with prescribed symmetry"*, preprint (2017)
-- [2] W. Tadej, K. Życzkowski, *"[Defect of a Unitary Matrix](https://arxiv.org/abs/math/0702510 "arXiv")"*, Linear Algebra and its Applications, 429, pp. 447-481 (2008)
+- <sup>[1]</sup> W. Bruzda, D. Goyeneche, K. Życzkowski, *"Quantum measurements with prescribed symmetry"*, preprint (2017)
+- <sup>[2]</sup> W. Tadej, K. Życzkowski, *"[Defect of a Unitary Matrix](https://arxiv.org/abs/math/0702510 "arXiv")"*, Linear Algebra and its Applications, 429, pp. 447-481 (2008)
