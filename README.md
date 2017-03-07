@@ -1,10 +1,10 @@
 # (restricted) Defect of Unitary Matrix
 
-Defect of a unitary matrix `U` gives an upper bound for the dimensionality of a smooth orbit of inequivalent unitary matrices stemming from `U`. In particular one can use it as a one-way criterion
+**Defect** of a unitary matrix `U` gives an upper bound for the dimensionality of a smooth orbit of inequivalent unitary matrices stemming from `U`. In particular one can use it as a one-way criterion
 ```
 if defect of a matrix is zero then this matrix is an isolated point
 ```
-which means that in the neighbourhood of a given matrix there are no other inequivalent matrices. Roughly speaking, two matrices are said to be equivalent is one can be transformed into the other via unitary operations ("rotations"). It is still possible to define (restricted) defect for a unitary matrix `U` subjected to additional constraints:
+which means that in the neighbourhood of a given matrix there are no other inequivalent matrices. Roughly speaking, two matrices are said to be **equivalent** is one can be transformed into the other via unitary operations ("rotations"). It is still possible to define **restricted** defect for a unitary matrix `U` subjected to additional constraints:
 - `U` is hermitian
 - `U` has constant (and real) diagonal
 - `U` has constant off-diagonal moduli
@@ -21,7 +21,7 @@ to extend corresponding objects so that one gets smooth family of quantum measur
 
 ---
 
-Usage:
+## Usage
 ```
 >> defect(U, [, METHOD [, SV_TOLERANCE]])
 
@@ -40,6 +40,6 @@ The main script `defect.m` comprises of two auxiliary scripts which can be used 
 
 ---
 
-References
-- [1] W. Bruzda, D. Goyeneche, K. Życzkowski, "Quantum measurements with prescribed symmetry", preprint (2017)
-- [2] W. Tadej, K. Życzkowski, "Defect of a Unitary Matrix", Linear Algebra and its Applications, 429, pp. 447-481 (2008)
+## References
+- [1] W. Bruzda, D. Goyeneche, K. Życzkowski, *"Quantum measurements with prescribed symmetry"*, preprint (2017)
+- [2] W. Tadej, K. Życzkowski, *"[Defect of a Unitary Matrix](https://arxiv.org/abs/math/0702510 "arXiv")"*, Linear Algebra and its Applications, 429, pp. 447-481 (2008)
