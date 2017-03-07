@@ -30,7 +30,6 @@ function d = defect_u(U, METHOD, SV_TOLERANCE)
 
     N = size(U, 1);
 
-    disp('Wait...');
     switch METHOD
         case 'R'
             disp(sprintf('Method: ''R'''));
@@ -74,14 +73,16 @@ function d = dR(U, N)
 % as possible. For instance, replacing 1.000000 with 0.999998 would result in an
 % untrustworthy outcome! This problem should be solved by considering "non-zero"
 % singular values of the matrix "R". See "dS(...)" below.
+    disp('Wait... Preparing matrix ''R''...');
     R = get_R(U, N);
-    disp('Wait... Getting rank of ''R''');
+    disp('Wait... Getting rank of ''R''...');
     d = (N - 1) * (N - 1) - rank(R); % dephased defect value = d(H) != D(H)
 end
 
 function d = dS(U, N, SV_TOLERANCE)
+    disp('Wait... Preparing matrix ''R''...');
     R = get_R(U, N);
-    disp('Wait... Getting SVD of ''R''');
+    disp('Wait... Getting SVD of ''R''...');
     NZSV_R = sum((svd(R) > SV_TOLERANCE)); % non-zero SV of R
     d = (N - 1) * (N - 1) - NZSV_R;
 end

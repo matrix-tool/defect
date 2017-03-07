@@ -8,7 +8,7 @@ function tests = defect_test
     tests = functiontests(localfunctions);
 end
 
-function setup(testCase) 
+function setup(testCase)
     addpath ../chm; % include Fourier...
 end
 
@@ -16,18 +16,17 @@ function testUnitaryDefect(testCase)
 
     prime_number = [ 2 3 5 7 ];
 
-    for index = 1 : size(prime_number, 2);
-        p = prime_number(index);
+    for p = prime_number
         F = kron(fourier(p, 'classic'), fourier(p, 'classic')); % tensor product of 'classic' Fouriers
 
         expected_value = (p - 1) * (p - 1) * (p + 1);
-        
+
         d = [ ...
             expected_value, ...
             get_defect(F)
         ];
         disp(sprintf('Expected value: %d', expected_value));
-        disp('------------------------------------------'); 
+        disp('------------------------------------------');
 
         if ~all(d == d(1))
             error('Result does not match expected value!');
@@ -45,14 +44,13 @@ function testRestrictedDefect(testCase)
 
     selected_dimension = [ 2 4 5 8 10 ];
 
-    for j = selected_dimension
-        N = dimension(j);
+    for N = selected_dimension
         F = fourier(N, 'hermitian');
         d = [
-            expected_value(j), ...
+            expected_value(N - 1), ...
             get_defect(F);
         ];
-        disp(sprintf('Expected value: %d', expected_value(j)));
+        disp(sprintf('Expected value: %d', expected_value(N - 1)));
         disp('------------------------------------------'); 
 
         if ~all(d == d(1))
@@ -73,7 +71,7 @@ function result = get_defect(U)
     result{5} = defect(U, 1e-11); % default - SV_TOLERANCE should be ignored
     result{6} = defect(U, 'S', 1e-11); % SVD with custom SV_TOLERANCE
     result{7} = defect(U, 'S'); % SVD with default SV_TOLERANCE
- 
+
     % FIX it using verifyError() or by implementing 'T' method in defect_h.m :)
 
     % result{8} = defect(U, 'T'); % tangent...
@@ -83,9 +81,10 @@ function result = get_defect(U)
     result{11} = defect(U, 'X', 1e-11); % wrong method - should switch to default and ignore SV_TOLERANCE
 
     result = cell2mat(result);
-    disp('------------------------------------------'); 
+    disp('------------------------------------------');
     disp('All non-negative integers should be equal!');
     disp(result);
     disp('------------------------------------------');
 
 end
+

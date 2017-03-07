@@ -7,7 +7,7 @@
 function d = defect_h(U, METHOD, SV_TOLERANCE)
 
     N = size(U, 1);
-    disp('Wait...');
+    disp('Wait... Preparing matrix ''R''...');
     z = 0; % number of zeros above the diagonal in U
     for j = 1 : N - 1
         for k = j + 1 : N
