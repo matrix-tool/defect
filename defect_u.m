@@ -1,6 +1,6 @@
 % 20160408
-% https://github.com/matrix-tool/defect
 % name[at]alumni.uj.edu.pl, name = w.bruzda
+% https://github.com/matrix-tool/defect
 
 % Dephased defect of a unitary (Hadamard) matrix U.
 
@@ -24,7 +24,7 @@
 % >> defect_u(F, 'R', 1e-12) % SV_TOLERANCE is ignored in this case
 % >> defect_u(F, 'T', 1e-12) % SV_TOLERANCE is ignored in this case
 
-% Since "defect_u" is "internal" function its arguments are assumed valid!
+% Since "defect_u.m" is "internal" function for "defect.m" its arguments are assumed valid!
 
 function d = defect_u(U, METHOD, SV_TOLERANCE)
 
@@ -121,4 +121,3 @@ function d = dT(U, N)
     end;
     d = (N - 1) * (N - 1) - rank(T);
 end
-
