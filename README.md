@@ -1,11 +1,11 @@
 # (restricted) Defect of Unitary Matrix
 
 ## description
-**Defect** of a unitary matrix `U` gives an upper bound for the dimensionality of a smooth orbit of inequivalent unitary matrices stemming from `U`. In particular one can use it as a one-way criterion
+**Defect** of a unitary matrix `U` gives an upper bound for the dimensionality of a smooth orbit of inequivalent unitary matrices stemming from `U`. Roughly speaking, two matrices are said to be **equivalent** if one can be transformed into the other via unitary operations ("rotations"). In particular one can use it as a one-way criterion
 ```
 if defect of a matrix is zero then this matrix is an isolated point
 ```
-which means that in the neighbourhood of a given matrix there are no other inequivalent matrices. Roughly speaking, two matrices are said to be **equivalent** if one can be transformed into the other via unitary operations ("rotations"). This algebraic tool proves to be very useful when searching for potential candidates for families in the set of [complex Hadamard matrices](http://chaos.if.uj.edu.pl).
+which means that in the neighbourhood of a given matrix there are no other inequivalent matrices. This algebraic tool proves to be very useful when searching for potential candidates for families in the set of [complex Hadamard matrices](http://chaos.if.uj.edu.pl).
 
 One can also define **restricted** defect for a unitary matrix `U` subjected to additional constraints:
 - `U` is hermitian
