@@ -5,7 +5,7 @@
 ```
 if defect of a matrix is zero then this matrix is an isolated point
 ```
-which means that in the neighbourhood of a given matrix there are no other inequivalent matrices. Roughly speaking, two matrices are said to be **equivalent** is one can be transformed into the other via unitary operations ("rotations"). This algebraic tool proves to be very useful when searching for potential candidates for families in the set of [complex Hadamard matrices](http://chaos.if.uj.edu.pl).
+which means that in the neighbourhood of a given matrix there are no other inequivalent matrices. Roughly speaking, two matrices are said to be **equivalent** if one can be transformed into the other via unitary operations ("rotations"). This algebraic tool proves to be very useful when searching for potential candidates for families in the set of [complex Hadamard matrices](http://chaos.if.uj.edu.pl).
 
 One can also define **restricted** defect for a unitary matrix `U` subjected to additional constraints:
 - `U` is hermitian
