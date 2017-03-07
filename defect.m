@@ -1,6 +1,6 @@
 % 20170304
+% name[at]alumni.uj.edu.pl where name = w.bruzda
 % https://github.com/matrix-tool/defect
-% name[at]alumni.uj.edu.pl, name = w.bruzda
 
 % [dephased] defect of a square matrix
 
@@ -85,4 +85,3 @@ function b = is_unitary(U)
         b = true;
     end
 end
-
