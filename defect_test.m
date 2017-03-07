@@ -1,6 +1,6 @@
 % defect "unit test"
-% name[at]alumni.uj.edu.pl, name = w.bruzda
-% https://github.com/matrix-tool/defect
+% name[at]alumni.uj.edu.pl where name = w.bruzda
+% https://github.com/matrix-tool/
 
 % usage:
 % >> result = runtests('defect_test.m');
