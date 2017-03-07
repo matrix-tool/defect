@@ -5,20 +5,23 @@
 ```
 if defect of a matrix is zero then this matrix is an isolated point
 ```
-which means that in the neighbourhood of a given matrix there are no other inequivalent matrices. Roughly speaking, two matrices are said to be **equivalent** is one can be transformed into the other via unitary operations ("rotations"). It is still possible to define **restricted** defect for a unitary matrix `U` subjected to additional constraints:
+which means that in the neighbourhood of a given matrix there are no other inequivalent matrices. Roughly speaking, two matrices are said to be **equivalent** is one can be transformed into the other via unitary operations ("rotations"). This algebraic tool proves to be very useful when searching for potential candidates for families in the set of [complex Hadamard matrices](http://chaos.if.uj.edu.pl).
+
+One can also define **restricted** defect for a unitary matrix `U` subjected to additional constraints:
 - `U` is hermitian
 - `U` has constant (and real) diagonal
 - `U` has constant off-diagonal moduli
 
+Motivation behind considering **restricted defect** is the idea of generalised quantum measurement and associated Gram matrices. It turns out that Gram matrix can be expressed as a unitary and hermitian object with constant diagonal, so that the defect is applicable to it. Given a POVM with predefined geometrical structure - either `SIC-POVM` or `MUB`, one can ask if it is possible
+to extend corresponding objects so that a smooth family of quantum measurements exists. In many cases the answer is affirmative.
+
+## implementation
 Defect can be calculated in many ways. Let `R` be a matrix of a special system of linear equations associated with matrix `U` [1]. Here we present three possible implementations, appropriately named:
 - 'R' - defect of `U` as the rank of `R`
 - 'S' - defect of `U` as a function of non-zero singular values of `R`
 - 'T' - defect of `U` as the dimension of the image of a tangent space to the manifold of unitaries under a certain tangent map... [2]
 
 Methods 'R' and 'T' work for matrices given with the highest possible numerical precision. If matrix `U` is provided only in approximate form one can try to use the 'S' method. However, a special attention is needed when setting `SV_TOLERANCE` - a kind of threshold to distinguish between "zero" and "non-zero" singular values of the matrix `R`!
-
-Motivation behind considering restricted defect is the idea of generalised quantum measurement and associated Gram matrices. It turns out that Gram matrix can be expressed as a unitary and hermitian object with constant diagonal, so that the defect is applicable to it. Given a POVM with predefined geometrical structure - either `SIC-POVM` or `MUB`, one can ask if it is possible
-to extend corresponding objects so that one gets smooth family of quantum measurements? In many cases the answer is affirmative.
 
 ## usage
 ```
