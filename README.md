@@ -5,7 +5,7 @@
 ```
 if defect of a matrix is zero then this matrix is an isolated point
 ```
-which means that in the neighbourhood of a given matrix there are no other inequivalent matrices. This algebraic tool proves to be very useful when searching for potential candidates for families in the set of [complex Hadamard matrices](http://chaos.if.uj.edu.pl).
+which means that in the neighbourhood of a given matrix there are no other inequivalent matrices. This algebraic tool proves to be very useful when searching for potential candidates for families in the set of [complex Hadamard matrices](http://chaos.if.uj.edu.pl/~karol/hadamard/).
 
 One can also define **restricted** defect for a unitary matrix `U` subjected to additional constraints:
 - `U` is hermitian
