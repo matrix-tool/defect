@@ -1,5 +1,6 @@
 % 20160408
-% name[at]alumni.uj.edu.pl where name = w.bruzda
+% W. Bruzda, name[at]alumni.uj.edu.pl : name = w.bruzda
+% http://chaos.if.uj.edu.pl/~karol/hadamard/
 % https://github.com/matrix-tool/
 
 % Dephased defect of a unitary (Hadamard) matrix U.
@@ -23,6 +24,8 @@
 % >> defect_u(F, 'T')
 % >> defect_u(F, 'R', 1e-12) % SV_TOLERANCE is ignored in this case
 % >> defect_u(F, 'T', 1e-12) % SV_TOLERANCE is ignored in this case
+
+% >> version % 9.1.0.441655 (R2016b)
 
 % Since "defect_u.m" is "internal" function for "defect.m" its arguments are assumed valid!
 

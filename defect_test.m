@@ -1,8 +1,9 @@
 % defect "unit test"
-% name[at]alumni.uj.edu.pl where name = w.bruzda
+% W. Bruzda, name[at]alumni.uj.edu.pl : name = w.bruzda
+% http://chaos.if.uj.edu.pl/~karol/hadamard/
 % https://github.com/matrix-tool/
 
-% usage:
+% >> version % 9.1.0.441655 (R2016b)
 % >> result = runtests('defect_test.m');
 % >> rt = table(result) 
 

@@ -1,8 +1,15 @@
 % 20170304
-% name[at]alumni.uj.edu.pl where name = w.bruzda
+% W. Bruzda, name[at]alumni.uj.edu.pl : name = w.bruzda
+% http://chaos.if.uj.edu.pl/~karol/hadamard/
 % https://github.com/matrix-tool/
 
 % [dephased] defect of a square matrix
+
+% >> version % 9.1.0.441655 (R2016b)
+% >> d = defect(U);             % explicit 'R' method (default)
+% >> d = defect(U, 'R');        % rank of the matrix R
+% >> d = defect(U, 'S', 1e-10); % number of non-zero SV of R
+% >> d = defect(U, 'T');        % dimension of the tangent space... - See README.md
 
 function d = defect(U, METHOD, SV_TOLERANCE)
 
@@ -72,7 +79,7 @@ end
 function b = is_hermitian(U)
     b = false;
     T = abs(U - U');
-    if sum(T(:)) < 1e-10 % note - the tolerance is relatively large...
+    if sum(T(:)) < 1e-6 % "single precision" tolerance...
         b = true;
     end
 end
@@ -81,7 +88,7 @@ function b = is_unitary(U)
     b = false;
     T = U * U';
     T = T / T(1, 1); % U = unitary => T ~ I
-    if norm(T - eye(size(T, 1)), 'fro') < 1e-10 % note - the tolerance is relatively large...
+    if norm(T - eye(size(T, 1)), 'fro') < 1e-6 % "single precision" tolerance... required for Q7_0 and others...
         b = true;
     end
 end
