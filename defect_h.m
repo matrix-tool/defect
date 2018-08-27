@@ -1,6 +1,6 @@
 function d = defect_h(U, METHOD, SV_TOLERANCE)
 % 20170209 WB
-% 20180824 W. Bruzda, name[at]alumni.uj.edu.pl : name = w.bruzda
+% 20180824 W. Bruzda, name[at]uj.edu.pl : name = w.bruzda
 %
 % http://chaos.if.uj.edu.pl/~karol/hadamard/
 % https://github.com/matrix-toolbox/
