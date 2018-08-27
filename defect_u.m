@@ -1,14 +1,18 @@
-% 20160408
-% W. Bruzda, name[at]alumni.uj.edu.pl : name = w.bruzda
+function d = defect_u(U, METHOD, SV_TOLERANCE)
+% 20080301 KZ, WT
+% 20160408 WB
+% 20180824 W. Bruzda, name[at]uj.edu.pl : name = w.bruzda
+%
 % http://chaos.if.uj.edu.pl/~karol/hadamard/
 % https://github.com/matrix-toolbox/
-
+%
 % Dephased defect of a unitary (Hadamard) matrix U.
-
+%
 % Based on the idea of W. Tadej and K. Zyczkowski
-% Linear Algebra and its Applications 429, pp. 447-481, 2008
+% see: Linear Algebra Appl. 429, pp. 447-481 (2008)
 % ------------------------------------------------------------------------------
-% General usage: >> defect_u(U, METHOD, SV_TOLERANCE);
+% exemplary call for U = unitary matrix:
+% >> defect_u(U, METHOD, SV_TOLERANCE);
 %
 % Possible METHOD values:
 % 'R' - rank of matrix R
@@ -27,26 +31,38 @@
 
 % >> version % 9.1.0.441655 (R2016b)
 
-% Since "defect_u.m" is "internal" function for "defect.m" its arguments are assumed valid!
-
-function d = defect_u(U, METHOD, SV_TOLERANCE)
-
     N = size(U, 1);
+
+    if ~exist('METHOD') % default method
+        if VERBOSE_MODE
+            disp(sprintf('Method: ''R'''));
+        end
+        d = dR(U, N);
+        return
+    end
 
     switch METHOD
         case 'R'
-            disp(sprintf('Method: ''R'''));
+            if VERBOSE_MODE
+                disp(sprintf('Method: ''R'''));
+            end
             d = dR(U, N);
         case 'S'
-            disp(sprintf('Method: ''S'' with ''SV_TOLERANCE'' = %g', SV_TOLERANCE));
+            if ~exist('SV_TOLERANCE') || ~isnumeric(SV_TOLERANCE)
+                SV_TOLERANCE = 1e-13; % default SV_TOLERANCE
+            end
+            if VERBOSE_MODE
+                disp(sprintf('Method: ''S'' with ''SV_TOLERANCE'' = %g', SV_TOLERANCE));
+            end
             d = dS(U, N, SV_TOLERANCE);
         case 'T'
-            disp(sprintf('method: ''T'''));
+            if VERBOSE_MODE
+                disp(sprintf('method: ''T'''));
+            end
             d = dT(U, N);
         otherwise
-            error('Not implemented!');
+            error('METHOD not implemented!');
     end
-
 end
 
 function R = get_R(U, N)
@@ -55,7 +71,7 @@ function R = get_R(U, N)
     t = -1;
     for row = 1 : N - 1
         for next_row = row + 1 : N
-            t = t + 2; % start with index = 1
+            t = t + 2;         % start with index = 1
             for k = 1 : N
                 M = U(row, k) * U(next_row, k)';
                 MR = real(M);
@@ -76,16 +92,24 @@ function d = dR(U, N)
 % as possible. For instance, replacing 1.000000 with 0.999998 would result in an
 % untrustworthy outcome! This problem should be solved by considering "non-zero"
 % singular values of the matrix "R". See "dS(...)" below.
-    disp('Wait... Preparing matrix ''R''...');
+    if VERBOSE_MODE
+        disp('Wait... Preparing matrix ''R''...');
+    end
     R = get_R(U, N);
-    disp('Wait... Getting rank of ''R''...');
+    if VERBOSE_MODE
+        disp('Wait... Getting rank of ''R''...');
+    end
     d = (N - 1) * (N - 1) - rank(R); % dephased defect value = d(H) != D(H)
 end
 
 function d = dS(U, N, SV_TOLERANCE)
-    disp('Wait... Preparing matrix ''R''...');
+    if VERBOSE_MODE
+        disp('Wait... Preparing matrix ''R''...');
+    end
     R = get_R(U, N);
-    disp('Wait... Getting SVD of ''R''...');
+    if VERBOSE_MODE
+        disp('Wait... Getting SVD of ''R''...');
+    end
     NZSV_R = sum((svd(R) > SV_TOLERANCE)); % non-zero SV of R
     d = (N - 1) * (N - 1) - NZSV_R;
 end
@@ -102,7 +126,9 @@ function d = dT(U, N)
     % by squaring the moduli of entries (preserving each element position),
     % eventually rank(T) is the size of tangent space image
 
-    disp('Wait... Getting dimension of the tangent space...');
+    if VERBOSE_MODE
+        disp('Wait... Getting dimension of the tangent space...');
+    end
     % image of vectors (A, 0), where A - basis of a anti-symmetric real part 
     for k = 1 : (N - 1),
         for l = (k + 1) : N,
@@ -124,3 +150,12 @@ function d = dT(U, N)
     end;
     d = (N - 1) * (N - 1) - rank(T);
 end
+
+
+function verbose=VERBOSE_MODE
+% Toggle:
+%   verbose = false  - to suppress all displays except for the defect value
+%   verbose = true   - to display everything (helpful when dealing with really big matrices, to get a hint what's currently going on)
+    verbose = false;
+end
+

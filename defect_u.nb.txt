@@ -1,0 +1,34 @@
+(*
+20170611 W. Bruzda, name[at]uj.edu.pl : name = w.bruzda
+
+http://chaos.if.uj.edu.pl/~karol/hadamard/
+https://github.com/matrix-toolbox/
+
+DEFECT OF A UNITARY MATRIX
+
+Input parameters:
+    M = square unitary matrix
+
+Use ONLY numerical objects as first argument: UnitaryDefect(N[M]), otherwise Mathematica might not be able to simplify calculations!
+
+WB is indepted to D. Goyeneche for pointing out one missing operation. :)
+*)
+
+
+
+UnitaryDefect[M_] := Module[{d = Dimensions[M][[1]], R, T},
+  T = Table[0, {d}, {d}];
+  R = Flatten[
+    Table[Flatten[
+      ReplacePart[T, {i -> M[[i]] Conjugate[M[[j]]], j -> -M[[i]] Conjugate[M[[j]]]}]], {i, 1, d - 1}, {j, i + 1, d}], 1];
+  (d - 1)^2 - MatrixRank[Join[Re[R], Im[R]]]]
+
+
+(* exemplary call for Fourier matrix of size n *)
+
+n = 12;
+Fn = Table[Exp[2*Pi*I*j*k / n], {j, 0, n - 1}, {k, 0, n - 1}];
+
+UnitaryDefect[N[Fn]] (* for n = 12 one should get 17 *)
+
+

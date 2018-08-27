@@ -1,8 +1,11 @@
 % defect "unit test"
+%
+% 20170103
 % W. Bruzda, name[at]alumni.uj.edu.pl : name = w.bruzda
+%
 % http://chaos.if.uj.edu.pl/~karol/hadamard/
 % https://github.com/matrix-toolbox/
-
+%
 % >> version % 9.1.0.441655 (R2016b)
 % >> result = runtests('defect_test.m');
 % >> rt = table(result) 
@@ -67,21 +70,21 @@ function result = get_defect(U)
 
     result = {};
 
-    result{1} = defect(U, 'R'); % default
-    result{2} = defect(U, 'R', 1e-11); % default with custom SV_TOLERANCE
+    result{1} = defect(U, 'R');                    % default
+    result{2} = defect(U, 'R', 1e-11);             % default with custom SV_TOLERANCE
     result{3} = defect(U, 'R', 'wrong_tolerance'); % wrong SV_TOLERANCE
-    result{4} = defect(U); % default
-    result{5} = defect(U, 1e-11); % default - SV_TOLERANCE should be ignored
-    result{6} = defect(U, 'S', 1e-11); % SVD with custom SV_TOLERANCE
-    result{7} = defect(U, 'S'); % SVD with default SV_TOLERANCE
+    result{4} = defect(U);                         % default
+    result{5} = defect(U, 1e-11);                  % default - SV_TOLERANCE should be ignored
+    result{6} = defect(U, 'S', 1e-11);             % SVD with custom SV_TOLERANCE
+    result{7} = defect(U, 'S');                    % SVD with default SV_TOLERANCE
 
     % FIX it using verifyError() or by implementing 'T' method in defect_h.m :)
 
-    % result{8} = defect(U, 'T'); % tangent...
-    % result{9} = defect(U, 'T', 1e-11); % tangent... SV_TOLERANCE should be ignored
+    % result{8} = defect(U, 'T');                  % tangent...
+    % result{9} = defect(U, 'T', 1e-11);           % tangent... SV_TOLERANCE should be ignored
 
-    result{10} = defect(U, 'X'); % wrong method - should switch to default
-    result{11} = defect(U, 'X', 1e-11); % wrong method - should switch to default and ignore SV_TOLERANCE
+    result{10} = defect(U, 'X');                   % wrong method - should switch to default
+    result{11} = defect(U, 'X', 1e-11);            % wrong method - should switch to default and ignore SV_TOLERANCE
 
     result = cell2mat(result);
     disp('------------------------------------------');

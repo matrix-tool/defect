@@ -1,18 +1,18 @@
-% 20170209
-% W. Bruzda, name[at]alumni.uj.edu.pl : name = w.bruzda
+function d = defect_h(U, METHOD, SV_TOLERANCE)
+% 20170209 WB
+% 20180824 W. Bruzda, name[at]alumni.uj.edu.pl : name = w.bruzda
+%
 % http://chaos.if.uj.edu.pl/~karol/hadamard/
 % https://github.com/matrix-toolbox/
-
+%
 % [Restricted] defect of a unitary matrix U subjected to additional constraints.
-
+%
 % >> version % 9.1.0.441655 (R2016b)
 
-% Since "defect_h.m" is "internal" function for "defect.m" its arguments are assumed valid!
-
-function d = defect_h(U, METHOD, SV_TOLERANCE)
-
     N = size(U, 1);
-    disp('Wait... Preparing matrix ''R''...');
+    if VERBOSE_MODE
+        disp('Wait... Preparing matrix ''R''...');
+    end
     z = 0; % number of zeros above the diagonal in U
     for j = 1 : N - 1
         for k = j + 1 : N
@@ -22,8 +22,8 @@ function d = defect_h(U, METHOD, SV_TOLERANCE)
     % z = MUBs * N * (N - 1) / 2 for MUBs
 
     tau = N * (N - 1) / 2;
-    trivial_phases = N - 1; % see equivalence relation...
-    R = zeros(tau * 2, tau); % system of linear equations matrix split onto real and imaginary part 
+    trivial_phases = N - 1;     % equivalence relation...
+    R = zeros(tau * 2, tau);    % system of linear equations matrix split onto real and imaginary part 
     index = @(j, k) (j - 1) * N + k - j - j * (j - 1) / 2;
     next_row = -1;
     for j = 1 : N - 1
@@ -66,18 +66,33 @@ function d = defect_h(U, METHOD, SV_TOLERANCE)
     % trace_R = trace(R'*R)
     % return
 
+    tau
+    trivial_phases
+    z
     switch METHOD
         case 'S'
-            disp(sprintf('Method: ''S'' with ''SV_TOLERANCE'' = %g', SV_TOLERANCE));
-            disp(sprintf('Wait... Getting SVD of ''R'''));
+            if VERBOSE_MODE
+                disp(sprintf('Method: ''S'' with ''SV_TOLERANCE'' = %g', SV_TOLERANCE));
+                disp(sprintf('Wait... Getting SVD of ''R'''));
+            end
             NZSV_R = sum((svd(R) > SV_TOLERANCE)); % number of non-zero singular values of R
             d = tau - NZSV_R - trivial_phases - z;
         case 'R'
-            disp(sprintf('Method: ''R'''));
-            disp(sprintf('Wait... Getting rank of ''R'''));
+            if VERBOSE_MODE
+                disp(sprintf('Method: ''R'''));
+                disp(sprintf('Wait... Getting rank of ''R'''));
+            end
             d = tau - rank(R) - trivial_phases - z;
         otherwise
             error('Not implemented!');
     end
+end
+
+
+function verbose=VERBOSE_MODE
+% Toggle:
+%   verbose = false  - to suppress all displays except for the defect value
+%   verbose = true   - to display everything (helpful when dealing with really big matrices, to get a hint what's currently going on)
+    verbose = false;
 end
 

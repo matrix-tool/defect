@@ -25,21 +25,21 @@ Methods 'R' and 'T' work for matrices given with the highest possible numerical 
 
 ## usage
 ```
->> defect(U, [, METHOD [, SV_TOLERANCE]])
+>> defect_u(U, [, METHOD [, SV_TOLERANCE]])
 
->> defect(U)             % implicit call of 'R' method (default)
->> defect(U, 'R')        % explicit call of 'R' method
->> defect(U, 'S')        % SVD with default SV_TOLERANCE
->> defect(U, 'S', 1e-12) % SVD with custom SV_TOLERANCE
->> defect(U, 'T')        % method of tangent spaces...
->> defect(U, 'R', 1e-12) % SV_TOLERANCE is ignored with 'R'
->> defect(U, 'T', 1e-12) % SV_TOLERANCE is ignored with 'T'
+>> defect_u(U)             % implicit call of 'R' method (default)
+>> defect_u(U, 'R')        % explicit call of 'R' method
+>> defect_u(U, 'S')        % SVD with default SV_TOLERANCE
+>> defect_u(U, 'S', 1e-12) % SVD with custom SV_TOLERANCE
+>> defect_u(U, 'T')        % method of tangent spaces...
+>> defect_u(U, 'R', 1e-12) % SV_TOLERANCE is ignored with 'R'
+>> defect_u(U, 'T', 1e-12) % SV_TOLERANCE is ignored with 'T'
 ```
 
-The main script `defect.m` comprises of two auxiliary scripts which can be used independently. They are:
-- `defect_u.m` - defect of a unitary matrix
-- `defect_h.m` - defect of a unitary matrix subjected to additional constraints
+`defect_h.m` works similarly...
+
+Mathematica users can find two notebooks: `defect_u.nb.txt` and `defect_h.nb`.
 
 ## references
-- <sup>[1]</sup> W. Bruzda, D. Goyeneche, K. &#379;yczkowski, *"[Quantum measurements with prescribed symmetry](https://arxiv.org/abs/1704.04609 "arXiv")"*, preprint (2017)
-- <sup>[2]</sup> W. Tadej, K. &#379;yczkowski, *"[Defect of a Unitary Matrix](https://arxiv.org/abs/math/0702510 "arXiv")"*, Linear Algebra and its Applications, 429, pp. 447-481 (2008)
+- <sup>[1]</sup> W. Bruzda, D. Goyeneche, K. &#379;yczkowski, *"[Quantum measurements with prescribed symmetry](https://arxiv.org/abs/1704.04609 "arXiv")"*, Phys. Rev. A 96, 022105 (2017)
+- <sup>[2]</sup> W. Tadej, K. &#379;yczkowski, *"[Defect of a Unitary Matrix](https://arxiv.org/abs/math/0702510 "arXiv")"*, Lin. Alg. Appl., 429, pp. 447-481 (2008)
